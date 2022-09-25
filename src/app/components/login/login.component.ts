@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     ) {
         // redirect to home if already logged in
         if (this.authenticationService.userValue) {
-            this.router.navigate(['/']);
+            // this.router.navigate(['/']);
         }
     }
     cambio(){
@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
             .subscribe({
                 next: () => {
                     const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-                    this.router.navigateByUrl(returnUrl);
+                    // this.router.navigateByUrl(returnUrl);
                 },
                 error: error => {
                     if (error.status == 401){

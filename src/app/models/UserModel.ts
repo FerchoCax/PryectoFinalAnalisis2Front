@@ -5,4 +5,5 @@ export class UserModel {
     codEmpleado?: number;
     noColegiado?: number;
     nombre?: string;
+    
 }

@@ -100,7 +100,11 @@ h3{
     text-overflow: ellipsis;
 }
 
-
+.divUser{
+    span{
+        display: block;
+    }
+}
 
 
 @media (max-width: 800px) {

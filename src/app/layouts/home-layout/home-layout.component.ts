@@ -52,7 +52,7 @@ export class HomeLayoutComponent implements OnInit {
     }
     return false;
   }
-
+  
   toggleNav() {
     if (!this.smallView) {
       this.isExpanded = !this.isExpanded;

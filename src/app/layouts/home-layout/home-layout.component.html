@@ -10,7 +10,7 @@
         </button>
 
 
-        <span>Analisis de Sistemas 2</span>
+        <span>Cinema</span>
 
 
         <!-- <span *ngIf="!smallView">Usuario: {{user.username}}</span> -->
@@ -23,12 +23,28 @@
 
     <mat-sidenav #sidenav mode="side" opened="true">
         <div class="nav-container" style="width: 100%; display: flex; ">
-            <div>
+            <div class="divUser">
+                <span><mat-icon  style="font-size: 4em;">person</mat-icon></span>
+                <span *ngIf="isExpanded">{{( user == undefined || user.username == '' ) ? '---': user.username}}</span>
+                <span *ngIf="user == undefined && isExpanded">
+                    <div class="row">
+                        <div class="col-12" style=" display: flex; justify-content: center;">
+                            <app-login style="padding-left: 20%;"></app-login>
+
+                        </div>
+
+                    </div>
+                </span>
                 <mat-divider></mat-divider>
             </div>
 
             
             <mat-nav-list>
+                <mat-list-item  (click)="GoTo('Roles')" style="color: var(--primary-text-color);">
+                    <mat-icon mat-list-icon>build_circle</mat-icon>
+                    <span *ngIf="isExpanded">Roles</span>
+                </mat-list-item>
+
                 <mat-list-item *ngIf="!isDarkMode" (click)="darkTheme()" style="color: var(--primary-text-color);">
                     <mat-icon mat-list-icon>dark_mode</mat-icon>
                     <span *ngIf="isExpanded">Tema</span>
@@ -39,7 +55,8 @@
                     <span *ngIf="isExpanded">Tema</span>
                 </mat-list-item>
 
-                <mat-list-item (click)="logout()" *ngIf="estaLogeado" style="color: var(--primary-text-color);">
+                <!-- <mat-list-item (click)="logout()" *ngIf="estaLogeado" style="color: var(--primary-text-color);"> -->
+                <mat-list-item (click)="logout()" *ngIf="user != undefined"  style="color: var(--primary-text-color);">
                     <mat-icon mat-list-icon>logout</mat-icon>
                     <span *ngIf="isExpanded">Salir</span>
                 </mat-list-item>
@@ -52,6 +69,8 @@
             <!-- <img src="../../../assets/svgs/Home.svg"> -->
             <!-- <h3 style="margin-top: 30px;">Bienvenido {{user.username}}.</h3> -->
         </div>
-        <router-outlet (activate)="onActivate($event)"></router-outlet>
+        <div style="margin-top:70px">
+            <router-outlet  (activate)="onActivate($event)" ></router-outlet>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
