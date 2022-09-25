@@ -45,18 +45,18 @@
                     <span *ngIf="isExpanded">Roles</span>
                 </mat-list-item>
 
-                <mat-list-item *ngIf="!isDarkMode" (click)="darkTheme()" style="color: var(--primary-text-color);">
+                <mat-list-item *ngIf="!isDarkMode" hidden (click)="darkTheme()" style="color: var(--primary-text-color);">
                     <mat-icon mat-list-icon>dark_mode</mat-icon>
                     <span *ngIf="isExpanded">Tema</span>
                 </mat-list-item>
 
-                <mat-list-item *ngIf="isDarkMode" (click)="darkTheme()" style="color: var(--primary-text-color);">
+                <mat-list-item *ngIf="isDarkMode" hidden (click)="darkTheme()" style="color: var(--primary-text-color);">
                     <mat-icon mat-list-icon>light_mode</mat-icon>
                     <span *ngIf="isExpanded">Tema</span>
                 </mat-list-item>
 
                 <!-- <mat-list-item (click)="logout()" *ngIf="estaLogeado" style="color: var(--primary-text-color);"> -->
-                <mat-list-item (click)="logout()" *ngIf="user != undefined"  style="color: var(--primary-text-color);">
+                <mat-list-item (click)="logout()" *ngIf="user != undefined" hidden  style="color: var(--primary-text-color);">
                     <mat-icon mat-list-icon>logout</mat-icon>
                     <span *ngIf="isExpanded">Salir</span>
                 </mat-list-item>
