@@ -54,6 +54,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { BlockCopyPasteDirective } from './directives/block-copy-paste.directive';
 import { RolesComponent } from './components/roles/roles.component';
 import { CrearRolesComponent } from './components/roles/crear-roles/crear-roles.component';
+import { RolesUsuarioComponent } from './components/roles/roles-usuario/roles-usuario.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { CrearRolesComponent } from './components/roles/crear-roles/crear-roles.
     BlockCopyPasteDirective,
     RolesComponent,
     CrearRolesComponent,
+    RolesUsuarioComponent,
   ],
   entryComponents: [],
   imports: [
