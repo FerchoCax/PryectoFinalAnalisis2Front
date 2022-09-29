@@ -45,6 +45,11 @@
                     <span *ngIf="isExpanded">Roles</span>
                 </mat-list-item>
 
+                <mat-list-item  (click)="GoTo('Sucursales')" style="color: var(--primary-text-color);">
+                    <mat-icon mat-list-icon>apartment</mat-icon>
+                    <span *ngIf="isExpanded">Sucursales</span>
+                </mat-list-item>
+
                 <mat-list-item *ngIf="!isDarkMode" hidden (click)="darkTheme()" style="color: var(--primary-text-color);">
                     <mat-icon mat-list-icon>dark_mode</mat-icon>
                     <span *ngIf="isExpanded">Tema</span>

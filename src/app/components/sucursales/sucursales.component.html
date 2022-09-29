@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 espacio">
+            <span> Nombre Sucursal:</span>
+            <input type="text" [(ngModel)]="nombreSucursal" class="inputBasico">
+        </div>
+        <div class="col-12 espacio">
+            <span> Departamento: </span>
+            <select name="departamento" class="inputBasico" [(ngModel)]="departamento" (ngModelChange)="cambioDepartamento()" id="departamento">
+                <option value="-">Seleccione</option>
+                <option *ngFor="let dep of dataDepartamentos" value="{{dep.codDepartamento}}">{{dep.nombre}}</option>
+            </select>
+        </div>
+        <div class="col-12 espacio">
+            <span> Municipio: </span>
+            <select name="municipio" class="inputBasico" [(ngModel)]="municipio" id="municipio">
+                <option value="-">Selecione</option>
+                <option *ngFor="let mun of dataMunicipios" value="{{mun.codMunicipio}}">{{mun.nombre}}</option>
+            </select>
+        </div>
+        <div class="col-12 espacio">
+            <span> Telefono: </span>
+            <input type="number" [(ngModel)]="telefono" class="inputBasico">
+        </div>
+        <div class="col-12 espacio">
+            <span> Direcion: </span>
+            <input type="text" [(ngModel)]="direccionSucursal"  maxlength="199" class="inputBasico">
+
+        </div>
+
+        <div class="col-12 espacio">
+            <button mat-raised-button color="primary" (click)="crarSucursal()" class="full-width">Crear Sucursal</button>
+        </div>
+        
+    </div>
+</div>

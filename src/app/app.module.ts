@@ -55,6 +55,7 @@ import { BlockCopyPasteDirective } from './directives/block-copy-paste.directive
 import { RolesComponent } from './components/roles/roles.component';
 import { CrearRolesComponent } from './components/roles/crear-roles/crear-roles.component';
 import { RolesUsuarioComponent } from './components/roles/roles-usuario/roles-usuario.component';
+import { SucursalesComponent } from './components/sucursales/sucursales.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { RolesUsuarioComponent } from './components/roles/roles-usuario/roles-us
     RolesComponent,
     CrearRolesComponent,
     RolesUsuarioComponent,
+    SucursalesComponent,
   ],
   entryComponents: [],
   imports: [
