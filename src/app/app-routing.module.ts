@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, ActivatedRoute } from '@angular/router'; 
 import { LoginComponent } from './components/login/login.component';
-import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import { HomeLayoutComponent } from './home/home-layout.component';
 import { AuthGuard } from './helpers/auth.guard';
 import { PDFViewerComponent } from './components/pdfviewer/pdfviewer.component';
 import { RolesComponent } from './components/roles/roles.component';
