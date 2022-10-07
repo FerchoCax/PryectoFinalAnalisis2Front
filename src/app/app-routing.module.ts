@@ -6,6 +6,7 @@ import { AuthGuard } from './helpers/auth.guard';
 import { PDFViewerComponent } from './components/pdfviewer/pdfviewer.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { SucursalesComponent } from './components/sucursales/sucursales.component';
+import { SalasComponent } from './components/salas/salas.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,11 @@ const routes: Routes = [
       {
         path:'Sucursales',
         component:SucursalesComponent
+      },
+      
+      {
+        path:'Salas',
+        component:SalasComponent
       }
     ]
   },
