@@ -49,6 +49,20 @@
                     <mat-icon mat-list-icon>apartment</mat-icon>
                     <span *ngIf="isExpanded">Sucursales</span>
                 </mat-list-item>
+                <mat-list-item  (click)="GoTo('Salas')" style="color: var(--primary-text-color);">
+                    <mat-icon mat-list-icon>weekend</mat-icon>
+                    <span *ngIf="isExpanded">Salas</span>
+                </mat-list-item>
+
+                <mat-list-item  (click)="GoTo('Funciones')" style="color: var(--primary-text-color);">
+                    <mat-icon mat-list-icon>slideshow</mat-icon>
+                    <span *ngIf="isExpanded">Funciones</span>
+                </mat-list-item>
+
+                <mat-list-item  (click)="GoTo('Imagenes')" style="color: var(--primary-text-color);">
+                    <mat-icon mat-list-icon>image</mat-icon>
+                    <span *ngIf="isExpanded">Imagenes Pelicula</span>
+                </mat-list-item>
 
                 <mat-list-item *ngIf="!isDarkMode" hidden (click)="darkTheme()" style="color: var(--primary-text-color);">
                     <mat-icon mat-list-icon>dark_mode</mat-icon>

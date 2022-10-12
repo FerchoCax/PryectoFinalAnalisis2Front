@@ -57,6 +57,8 @@ import { CrearRolesComponent } from './components/roles/crear-roles/crear-roles.
 import { RolesUsuarioComponent } from './components/roles/roles-usuario/roles-usuario.component';
 import { SucursalesComponent } from './components/sucursales/sucursales.component';
 import { SalasComponent } from './components/salas/salas.component';
+import { FuncionesComponent } from './components/funciones/funciones.component';
+import { ImagenesPeliculaComponent } from './components/imagenes-pelicula/imagenes-pelicula.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { SalasComponent } from './components/salas/salas.component';
     RolesUsuarioComponent,
     SucursalesComponent,
     SalasComponent,
+    FuncionesComponent,
+    ImagenesPeliculaComponent,
   ],
   entryComponents: [],
   imports: [
