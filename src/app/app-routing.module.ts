@@ -6,6 +6,7 @@ import { AuthGuard } from './helpers/auth.guard';
 import { PDFViewerComponent } from './components/pdfviewer/pdfviewer.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { SucursalesComponent } from './components/sucursales/sucursales.component';
+import { ClientescrearComponent } from './components/clientescrear/clientescrear.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
         path:'Roles',
         // canActivate:[AuthGuard],
         component: RolesComponent
+      },
+      {
+        path:'RegistrarCliente',
+        component:ClientescrearComponent
       },
       {
         path:'Sucursales',

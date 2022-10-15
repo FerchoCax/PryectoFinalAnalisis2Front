@@ -24,6 +24,7 @@ import { Cliente } from '../model/cliente';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -137,7 +138,7 @@ export class ClientesService {
             }
         }
 
-        return this.httpClient.post<any>(`${this.configuration.basePath}/Clientes/CrearCliente`,
+        return this.httpClient.post<any>(`${environment.apiUrl}/Clientes/CrearCliente`,
             cliente,
             {
                 context: localVarHttpContext,

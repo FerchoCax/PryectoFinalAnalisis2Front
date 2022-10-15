@@ -56,6 +56,7 @@ import { RolesComponent } from './components/roles/roles.component';
 import { CrearRolesComponent } from './components/roles/crear-roles/crear-roles.component';
 import { RolesUsuarioComponent } from './components/roles/roles-usuario/roles-usuario.component';
 import { SucursalesComponent } from './components/sucursales/sucursales.component';
+import { ClientescrearComponent } from './components/clientescrear/clientescrear.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { SucursalesComponent } from './components/sucursales/sucursales.componen
     CrearRolesComponent,
     RolesUsuarioComponent,
     SucursalesComponent,
+    ClientescrearComponent,
   ],
   entryComponents: [],
   imports: [
