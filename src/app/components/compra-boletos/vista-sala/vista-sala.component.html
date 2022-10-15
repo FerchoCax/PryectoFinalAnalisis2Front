@@ -1,0 +1,14 @@
+<h1>Seleccion de asientos</h1>
+<div class="row" *ngIf="salaVisible">
+    <div *ngFor="let letra of letras" class="col-12" style="margin-top: 15px;">
+        <div *ngFor="let asi of filtroAsientos(letra)" style="display: inline-block;">
+            <div class="asiento" [ngClass]="asi.boletos.length>0 ? 'colorRed' : asi.codTipoAsiento == 2 ? 'colorBlue' :'colorGreen'">
+
+            </div>
+            <br>
+            {{asi.fila}}-{{asi.numero}} 
+
+        </div>
+    </div>
+    
+</div>

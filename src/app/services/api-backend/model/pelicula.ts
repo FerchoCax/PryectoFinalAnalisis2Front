@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import { ClasificacionPelicula } from './clasificacionPelicula';
+import { Funcione } from './funcione';
 import { ImagenPelicula } from './imagenPelicula';
 
 
@@ -27,5 +28,6 @@ export interface Pelicula {
     fechaAct?: string | null;
     codClasificacionNavigation?: ClasificacionPelicula;
     imagenes?: Array<ImagenPelicula> | null;
+    funciones:Array<Funcione> | null;
 }
 

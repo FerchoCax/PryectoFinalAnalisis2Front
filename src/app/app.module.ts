@@ -59,6 +59,10 @@ import { SucursalesComponent } from './components/sucursales/sucursales.componen
 import { SalasComponent } from './components/salas/salas.component';
 import { FuncionesComponent } from './components/funciones/funciones.component';
 import { ImagenesPeliculaComponent } from './components/imagenes-pelicula/imagenes-pelicula.component';
+import { HomeComponent } from './components/home/home.component';
+import { PeliculaComponent } from './components/home/pelicula/pelicula.component';
+import { CompraBoletosComponent } from './components/compra-boletos/compra-boletos.component';
+import { VistaSalaComponent } from './components/compra-boletos/vista-sala/vista-sala.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +79,10 @@ import { ImagenesPeliculaComponent } from './components/imagenes-pelicula/imagen
     SalasComponent,
     FuncionesComponent,
     ImagenesPeliculaComponent,
+    HomeComponent,
+    PeliculaComponent,
+    CompraBoletosComponent,
+    VistaSalaComponent,
   ],
   entryComponents: [],
   imports: [

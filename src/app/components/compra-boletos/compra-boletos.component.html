@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <h1>Compra de boletos</h1>
+
+    <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="CantidadBoletos" >
+            <ng-template matStepLabel>Cantidad de boletos</ng-template>
+            <div class="row">
+                <h3>Adulto</h3>
+                <div class="col-4" style="text-align: center;">
+                    <button mat-flat-button color="primary"  (click)="Restar('A')" >
+                        <mat-icon>remove</mat-icon>
+                    </button>
+                </div>
+                <div class="col-4" style="text-align: center;"><h1>{{cantidadBoletosAdulto}}</h1></div>
+                <div class="col-4" style="text-align: center;">
+                    <button mat-flat-button color="primary" (click)="Aumentar('A')">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Adulto Mayor</h3>
+                <div class="col-4" style="text-align: center;">
+                    <button mat-flat-button color="primary" (click)="Restar('AM')">
+                        <mat-icon>remove</mat-icon>
+                    </button>
+                </div>
+                <div class="col-4" style="text-align: center;"><h1>{{cantidadBoletosAdultoMayor}}</h1></div>
+                <div class="col-4" style="text-align: center;">
+                    <button mat-flat-button color="primary" (click)="Aumentar('AM')">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Niño</h3>
+                <div class="col-4" style="text-align: center;">
+                    <button mat-flat-button color="primary" (click)="Restar('N')">
+                        <mat-icon>remove</mat-icon>
+                    </button>
+                </div>
+                <div class="col-4" style="text-align: center;"><h1>{{cantidadBoletosNino}}</h1></div>
+                <div class="col-4" style="text-align: center;" >
+                    <button mat-flat-button color="primary" (click)="Aumentar('N')">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Total</h3>
+                <div style="text-align: center;">
+                    <h1>{{TotalboletosAComprar}}</h1>
+
+                </div>
+            </div>
+            <button mat-raised-button color="accent" matStepperNext [disabled]="!cantidadBoletos()" (click)="Siguiente(1)">Siguiente</button>
+        </mat-step>
+        <mat-step >
+            <ng-template matStepLabel>Seleccion de asientos</ng-template>
+            <app-vista-sala *ngIf="CargoSala" style="width: 80%;" [Sala]="sala">
+            </app-vista-sala>
+            <div>
+              <button mat-button matStepperPrevious>Atras</button>
+              <button mat-button matStepperNext>Siguiente</button>
+            </div>
+          
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Facturacion</ng-template>
+          <div>
+            <button mat-button matStepperPrevious>Atras</button>
+            <button mat-button matStepperNext>Siguiente</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+    
+</div>

@@ -9,6 +9,8 @@ import { SucursalesComponent } from './components/sucursales/sucursales.componen
 import { SalasComponent } from './components/salas/salas.component';
 import { FuncionesComponent } from './components/funciones/funciones.component';
 import { ImagenesPeliculaComponent } from './components/imagenes-pelicula/imagenes-pelicula.component';
+import { HomeComponent } from './components/home/home.component';
+import { CompraBoletosComponent } from './components/compra-boletos/compra-boletos.component';
 
 const routes: Routes = [
   {
@@ -21,18 +23,26 @@ const routes: Routes = [
         component: PDFViewerComponent
       },
       {
+        path:'',
+        component:HomeComponent
+      },
+      {
         path:'Roles',
         // canActivate:[AuthGuard],
         component: RolesComponent
       },
       {
-        path:'Sucursales',
-        component:SucursalesComponent
+        path:'CompraBoletos',
+        component:CompraBoletosComponent
       },
       
       {
         path:'Salas',
         component:SalasComponent
+      },
+      {
+        path:'Sucursales',
+        component:SucursalesComponent
       },
       {
         path:'Funciones',
