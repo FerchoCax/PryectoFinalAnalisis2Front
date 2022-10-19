@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Sala } from 'src/app/services/api-backend';
+import { Asiento, Sala } from 'src/app/services/api-backend';
 
 @Component({
   selector: 'app-vista-sala',
@@ -10,9 +10,12 @@ import { Sala } from 'src/app/services/api-backend';
 export class VistaSalaComponent implements OnInit {
   
   @Input('Sala') Sala:Sala;
+  @Input('Maximos') Maximo:number = 0;
+  @Output() CantidadSeleccionado: EventEmitter<number>;
   letras:string[]=[];
   salaVisible=false;
   constructor() {
+    this.CantidadSeleccionado = new EventEmitter<number>();
    }
 
   ngOnInit(): void {
@@ -43,6 +46,33 @@ export class VistaSalaComponent implements OnInit {
     this.Sala.asientos[0].codTipoAsiento == 2
     return  this.Sala.asientos.filter(e => e.fila==fila)
 
+  }
+  SeleccionAciento(asiento:Asiento){
+    if(this.Sala.asientos.filter(e => e.usuarioAct=="S").length ==this.Maximo){
+      this.Sala.asientos.forEach(e =>{
+        if(e.codAsiento == asiento.codAsiento){
+          if(e.usuarioAct =="S"){
+            e.usuarioAct=null;
+          }
+        }
+        
+      })
+      console.log(this.Sala.asientos.filter(e => e.codAsiento == asiento.codAsiento))
+    }else{
+      this.Sala.asientos.forEach(e =>{
+        if(e.codAsiento == asiento.codAsiento){
+          if(e.usuarioAct==null){
+            e.usuarioAct="S"
+          }else if(e.usuarioAct =="S"){
+            e.usuarioAct=null;
+          }
+        }
+        
+      })
+      console.log(this.Sala.asientos.filter(e => e.codAsiento == asiento.codAsiento))
+    }
+    this.CantidadSeleccionado.emit(this.Sala.asientos.filter(e => e.usuarioAct=="S").length)
+    
   }
   
 }

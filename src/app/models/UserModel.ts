@@ -1,9 +1,9 @@
 export class UserModel {
     username: string;
+    codUser?: number;
     roles: string[];
     token?: string;
-    codEmpleado?: number;
-    noColegiado?: number;
     nombre?: string;
-    
+    apellidos?: string;
+    tipo?:string;
 }

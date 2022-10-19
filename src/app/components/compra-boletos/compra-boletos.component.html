@@ -54,22 +54,98 @@
                 </div>
             </div>
             <button mat-raised-button color="accent" matStepperNext [disabled]="!cantidadBoletos()" (click)="Siguiente(1)">Siguiente</button>
-        </mat-step>
-        <mat-step >
+        </mat-step >
+        <mat-step [stepControl]="SeleccionadosBoletos">
             <ng-template matStepLabel>Seleccion de asientos</ng-template>
-            <app-vista-sala *ngIf="CargoSala" style="width: 80%;" [Sala]="sala">
-            </app-vista-sala>
+            <div >
+                <app-vista-sala *ngIf="CargoSala"  [Sala]="sala" [Maximos]="TotalboletosAComprar" (CantidadSeleccionado)="Cantidad($event)">
+                </app-vista-sala>
+            </div>
+           
             <div>
-              <button mat-button matStepperPrevious>Atras</button>
-              <button mat-button matStepperNext>Siguiente</button>
+              <button mat-raised-button matStepperPrevious>Atras</button>&nbsp;&nbsp;
+              <button mat-raised-button matStepperNext [disabled]="noEstanTodos" (click)="Siguiente(2)">Siguiente</button>
             </div>
           
         </mat-step>
         <mat-step>
           <ng-template matStepLabel>Facturacion</ng-template>
           <div>
-            <button mat-button matStepperPrevious>Atras</button>
-            <button mat-button matStepperNext>Siguiente</button>
+            <div class="row">
+                <div class="col-md-2 espacio">
+                    <span>Nombres:</span>
+                </div>
+                <div class="col-md-10 espacio">
+                    <input type="text" class="inputBasico" value="{{Cliente.nombres}}" readonly>
+                </div>
+                <div class="col-md-2 espacio">
+                    <span>Apellidos:</span>
+                </div>
+                <div class="col-md-10 espacio">
+                    <input type="text" class="inputBasico" value="{{Cliente.apellidos}}" readonly>
+                </div>
+                <div class="col-md-2 espacio">
+                    <span>Nit:</span>
+                </div>
+                <div class="col-md-10 espacio">
+                    <input type="text" class="inputBasico" value="{{((Cliente.nit != null)||(Cliente.nit != undefined)?Cliente.nit:'CF (Consumidor Final)')}}" readonly>
+                </div>
+                <div class="col-md-2 espacio">
+                    <span>Metodo de pago:</span>
+                </div>
+                <div class="col-md-10 espacio">
+                    <select name="" id="" class="inputBasico" [(ngModel)]="metodoPago">
+                        <option value="-">Seleccione</option>
+                        <option value="1">Tarjeta Credito Debito</option>
+                        <option value="3">Paypal</option>
+                    </select>
+                </div>
+                <div class="col-md-2 espacio">
+                    <span>Cantidad boletos adulto:</span>
+                </div>
+                <div class="col-md-4 espacio">
+                    <input type="text" class="inputBasico" value="{{cantidadBoletosAdulto}}" readonly>
+                </div>
+                <div class="col-md-2 espacio">
+                    <span>Precio boletos adulto:</span>
+                </div>
+                <div class="col-md-4 espacio">
+                    <input type="text" class="inputBasico" value="Q50.00" readonly>
+                </div>
+                <div class="col-md-2 espacio">
+                    <span>Cantidad boletos niño:</span>
+                </div>
+                <div class="col-md-4 espacio">
+                    <input type="text" class="inputBasico" value="{{cantidadBoletosAdulto}}" readonly>
+                </div>
+                <div class="col-md-2 espacio">
+                    <span>Precio boletos niño:</span>
+                </div>
+                <div class="col-md-4 espacio">
+                    <input type="text" class="inputBasico" value="Q35.00" readonly>
+                </div>
+                <div class="col-md-2 espacio">
+                    <span>Cantidad boletos adulto mayor:</span>
+                </div>
+                <div class="col-md-4 espacio">
+                    <input type="text" class="inputBasico" value="{{cantidadBoletosAdultoMayor}}" readonly>
+                </div>
+                <div class="col-md-2 espacio">
+                    <span>Precio adulto mayor niño:</span>
+                </div>
+                <div class="col-md-4 espacio">
+                    <input type="text" class="inputBasico" value="Q40.00" readonly>
+                </div>
+                <div class="col-md-2 espacio">
+                    <span>Total:</span>
+                </div>
+                <div class="col-md-10 espacio">
+                    <input type="text" class="inputBasico" value="{{TotalBoletos()}}" readonly>
+                </div>
+            </div>
+            <br>
+            <button mat-raised-button matStepperPrevious>Atras</button> &nbsp;&nbsp;&nbsp;
+            <button mat-raised-button color="primary" [disabled]="metodoPago=='-' || Cargando" (click)="RealizarCompra()" >Realizar Compra</button>
           </div>
         </mat-step>
       </mat-stepper>

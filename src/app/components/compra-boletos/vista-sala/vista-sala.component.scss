@@ -48,4 +48,14 @@
 
 .colorRed{
   background-color:red;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.colorBlack{
+  background-color:black;
+}
+.disabledItem {
+  pointer-events: none;
+  opacity: 0.4;
 }
