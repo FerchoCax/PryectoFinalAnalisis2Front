@@ -63,6 +63,8 @@ import { HomeComponent } from './components/home/home.component';
 import { PeliculaComponent } from './components/home/pelicula/pelicula.component';
 import { CompraBoletosComponent } from './components/compra-boletos/compra-boletos.component';
 import { VistaSalaComponent } from './components/compra-boletos/vista-sala/vista-sala.component';
+import { ValidacionDeBoletosComponent } from './components/validacion-de-boletos/validacion-de-boletos.component';
+import { LectorcodigoQrComponent } from './components/lectorcodigo-qr/lectorcodigo-qr.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,8 @@ import { VistaSalaComponent } from './components/compra-boletos/vista-sala/vista
     PeliculaComponent,
     CompraBoletosComponent,
     VistaSalaComponent,
+    ValidacionDeBoletosComponent,
+    LectorcodigoQrComponent
   ],
   entryComponents: [],
   imports: [

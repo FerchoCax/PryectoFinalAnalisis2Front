@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserModel } from 'src/app/models/UserModel';
 import { Boleto, BoletosFactura, Cliente, Factura, Sala } from 'src/app/services/api-backend';
 import { ComprasService } from 'src/app/services/api-backend/api/compras.service';
+import { Pelicula } from 'src/app/services/api-backend/model/pelicula';
 import { TodoCompra } from 'src/app/services/api-backend/model/todoCompra';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { SharedDataService } from 'src/app/services/utils/shared-data.service';
@@ -29,7 +30,9 @@ export class CompraBoletosComponent implements OnInit {
   cantidadBoletosNino=0;
   noEstanTodos:boolean=true;
   metodoPago:any='-'
+  divInfoPelicula:boolean = false;
   User:UserModel;
+  Pelicula:Pelicula;
   Cliente:Cliente={
     nombres:'',
     apellidos:'',
@@ -77,6 +80,11 @@ export class CompraBoletosComponent implements OnInit {
           console.log('funcion: ',this.CodFuncion)
           console.log('CodSala: ',this.CodSala)
           console.log('CodPelicula: ',this.CodPelicula)
+          this._servicioCompras.comprasGetPeliculaFuncionGet(this.CodFuncion)
+          .subscribe(res =>{
+            this.Pelicula = <Pelicula> res;
+            this.divInfoPelicula = true;
+          })
           this._servicioCompras.comprasGetAsientosSalaGet(this.CodSala,this.CodFuncion)
           .subscribe(result =>{
             this.sala = <Sala>result

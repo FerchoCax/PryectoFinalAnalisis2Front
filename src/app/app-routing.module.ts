@@ -11,6 +11,7 @@ import { FuncionesComponent } from './components/funciones/funciones.component';
 import { ImagenesPeliculaComponent } from './components/imagenes-pelicula/imagenes-pelicula.component';
 import { HomeComponent } from './components/home/home.component';
 import { CompraBoletosComponent } from './components/compra-boletos/compra-boletos.component';
+import { ValidacionDeBoletosComponent } from './components/validacion-de-boletos/validacion-de-boletos.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
       {
         path:'Imagenes',
         component:ImagenesPeliculaComponent
+      },
+      {
+        path:'ValidacionBoleto',
+        component:ValidacionDeBoletosComponent
       }
     ]
   },

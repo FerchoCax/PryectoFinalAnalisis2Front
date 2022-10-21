@@ -31,8 +31,13 @@ export class AuthenticationService {
     return this.userSubject.value;
   }
 
-  login(username: string, password: string) {
-    return this.http.post<any>(`${environment.apiUrl}/Login/C`, { "username": username, "password": password }).pipe(map(user => {
+  login(username: string, password: string, colaborador:boolean) {
+    
+    let letra:string = 'C';
+    if(colaborador){
+      letra="U";
+    }
+    return this.http.post<any>(`${environment.apiUrl}/Login/`+letra, { "username": username, "password": password }).pipe(map(user => {
       // store user details and jwt token in local storage to keep user logged in between page refreshes
       localStorage.setItem('user', JSON.stringify(user));
       this.userSubject.next(user);
@@ -51,7 +56,15 @@ export class AuthenticationService {
   }
 
   validarRol(roles: string[]) {
-    
-    return true;
+    if(this.userValue==null){
+      return false;
+    }
+    let usuarioValido=false;
+    this.userValue.roles.forEach(rol => {
+        if(roles.includes(rol)){
+            usuarioValido = true;
+        }
+    });
+    return usuarioValido;
   };
 }

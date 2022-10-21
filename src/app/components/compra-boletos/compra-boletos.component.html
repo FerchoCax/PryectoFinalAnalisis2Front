@@ -1,6 +1,10 @@
 <div class="container-fluid">
     <h1>Compra de boletos</h1>
-
+    <div *ngIf="divInfoPelicula">
+        <h2><b>Pelicula:</b>{{Pelicula.nombre}}</h2>
+        <h3><b>Descripcion:</b> {{Pelicula.descripcion}}</h3>
+        <h3><b>Clasificacion:</b> {{Pelicula.codClasificacionNavigation.nombre}} - {{Pelicula.codClasificacionNavigation.descripcion}} </h3>
+    </div>
     <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
         <mat-step [stepControl]="CantidadBoletos" >
             <ng-template matStepLabel>Cantidad de boletos</ng-template>

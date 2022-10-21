@@ -1,0 +1,7 @@
+<!-- <div><h1>{{ qrResultString }}</h1></div> -->
+<div class="lector"> 
+<zxing-scanner [formats]="formatsEnabled" (scanSuccess)="onCodeResult($event)"></zxing-scanner></div>
+
+<div align="end">
+    <button mat-raised-button color="warn" [mat-dialog-close]="0">Cancelar</button>
+</div>

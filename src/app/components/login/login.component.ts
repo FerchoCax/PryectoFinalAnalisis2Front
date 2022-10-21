@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
     error = '';
     hide = true;
     visible=true;
+    colaborador:boolean=false;
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
@@ -51,7 +52,8 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
-            password: ['', Validators.required]
+            password: ['', Validators.required],
+            colaborador:[]
         });
     }
 
@@ -70,7 +72,7 @@ export class LoginComponent implements OnInit {
         }
 
         this.loading = true; 
-        this.authenticationService.login(this.f.username.value, this.f.password.value)
+        this.authenticationService.login(this.f.username.value, this.f.password.value, this.colaborador)
             .pipe(first())
             .subscribe({
                 next: () => {
