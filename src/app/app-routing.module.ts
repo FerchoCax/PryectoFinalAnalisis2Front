@@ -6,6 +6,7 @@ import { AuthGuard } from './helpers/auth.guard';
 import { PDFViewerComponent } from './components/pdfviewer/pdfviewer.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { SucursalesComponent } from './components/sucursales/sucursales.component';
+import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { ClientescrearComponent } from './components/clientescrear/clientescrear.component';
 import { SalasComponent } from './components/salas/salas.component';
 import { FuncionesComponent } from './components/funciones/funciones.component';
@@ -13,7 +14,6 @@ import { ImagenesPeliculaComponent } from './components/imagenes-pelicula/imagen
 import { HomeComponent } from './components/home/home.component';
 import { CompraBoletosComponent } from './components/compra-boletos/compra-boletos.component';
 import { ValidacionDeBoletosComponent } from './components/validacion-de-boletos/validacion-de-boletos.component';
-
 const routes: Routes = [
   {
     path: '',                        
@@ -48,6 +48,10 @@ const routes: Routes = [
       {
         path:'Sucursales',
         component:SucursalesComponent
+      },
+      {
+        path:'Peliculas',
+        component:PeliculasComponent
       },
       {
         path:'Funciones',

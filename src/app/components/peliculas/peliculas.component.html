@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" espacio>  
+            <span>Nombre Pelicula:</span>
+            <input type="text" class="inputBasico">    
+        </div>
+        <div class="col-12" espacio>
+            <span>Descripcion:</span>
+            <input type="text" class="inputBasico"> 
+        </div>
+        <div class="col-12" espacio>
+            <span>Clasificacion:</span>
+            <select name="clasificacion" id="clasificacion" [(ngModel)]="Clasificacion" (ngModelChange)="cambioClasificacion()" class="inputBasico">   
+                <option value="-">Seleccione</option>>
+                <option *ngFor="let dep of dataClasificacion" value="{{codClasificacion}}">{{.nombre}}</option>
+            </select>
+        </div>
+        <div class="col-12" espacio>
+            <button mat-raised-button color="primary" (click)="crearPelicula()" class="full-width">Crear Pelicula</button>
+        </div>
+    </div>
+</div>

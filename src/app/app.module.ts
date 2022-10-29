@@ -56,6 +56,7 @@ import { RolesComponent } from './components/roles/roles.component';
 import { CrearRolesComponent } from './components/roles/crear-roles/crear-roles.component';
 import { RolesUsuarioComponent } from './components/roles/roles-usuario/roles-usuario.component';
 import { SucursalesComponent } from './components/sucursales/sucursales.component';
+import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { ClientescrearComponent } from './components/clientescrear/clientescrear.component';
 import { SalasComponent } from './components/salas/salas.component';
 import { FuncionesComponent } from './components/funciones/funciones.component';
@@ -79,6 +80,7 @@ import { LectorcodigoQrComponent } from './components/lectorcodigo-qr/lectorcodi
     CrearRolesComponent,
     RolesUsuarioComponent,
     SucursalesComponent,
+    PeliculasComponent,
     ClientescrearComponent,
     SalasComponent,
     FuncionesComponent,
