@@ -23,7 +23,7 @@ export class RolesUsuarioComponent implements OnInit {
   DataRoles:Role[] = [];
   DataSourceRoles:MatTableDataSource<Role>;
   @ViewChild(MatTable) TablaRoles: MatTable<Role>;
-  @ViewChild(MatPaginator) paginatorRoles : MatPaginator;
+  @ViewChild("#paginator") paginatorRoles : MatPaginator;
   columnasTablaRoles:string[] = ['nombre','estado','fechaIngreso','accion']
   constructor(private servicioRolesUsuario:RolesUsuarioService,
             private servicioRoles:RolesService) { }
@@ -102,6 +102,7 @@ export class RolesUsuarioComponent implements OnInit {
       this.DataRoles = <Role[]> result;
       this.DataSourceRoles = new MatTableDataSource(this.DataRoles);
       setTimeout(() => {
+        
         this.DataSourceRoles.paginator = this.paginatorRoles;
       }, 50);
     },error =>{

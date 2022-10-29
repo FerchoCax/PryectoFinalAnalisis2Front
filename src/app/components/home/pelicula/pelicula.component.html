@@ -1,0 +1,28 @@
+<div  >
+    <mat-card class="row">
+        <div class="col-12">
+            <img src="{{urlImagenPrincipal}}" style="max-width: 100% ;" alt="">
+        </div>
+        <div class="col-12 espacio" style="text-align: center;">
+            <span >{{Pelicula.nombre}}</span>
+        </div>
+        <div >
+            <mat-expansion-panel class="row" >
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+                Funciones
+            </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="row">
+                <div class="col-6 col-md-5" *ngFor="let func of Pelicula.funciones" >
+                    <button mat-raised-button class="boton" (click)="GoCompra(func.codFuncion, func.codSala,func.codSala)">
+                        {{formatoFecha(func.fechaHoraInicio)}}
+                    </button>
+                </div>
+            </div>
+                
+                
+            </mat-expansion-panel>
+        </div>
+    </mat-card>
+</div>

@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row">
+        <h1>Validacion de boletos</h1>
+        <div class="col-12 espacio" >
+            <button mat-raised-button color="primary" (click)="escanearBoleto()">Escanear Boleto</button>
+        </div>
+    </div>
+    <div class="row" *ngIf="encontroBoleto">
+        <h2>Nombre Pelicula: {{Pelicula.nombre}}</h2>
+        <h2>Horario de la funcion: {{fecha(Pelicula.funciones[0].fechaHoraInicio)}}</h2>
+        <div class="col-12">
+            <button mat-raised-button color="warn" class="full-width"  (click)="validar()" >Validar Boleto</button>
+        </div>
+    </div>
+</div>

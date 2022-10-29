@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+        <h1>Creacion de funciones</h1>
+        <div class="col-md-2 espacio"><span>Seleccione sucursal:</span></div>
+        <div class="col-md-10 espacio">
+            <select name="" class="inputBasico" id="" (change)="cargarSala($event)">
+                <option value="-">Seleccione</option>
+                <option *ngFor="let suc of Sucursales"   value="{{suc.codSucursal}}">{{suc.nombre}}</option>
+            </select>
+        </div>
+        <div class="col-md-2 espacio"><span>Seleccione Sala:</span></div>
+        <div class="col-md-10 espacio ">
+            <select name="" class="inputBasico" id="" [(ngModel)]="salaSeleccionada" (change)="CargarfuncionesSala($event)">
+                <option value="-">Seleccione</option>
+                <option *ngFor="let sala of Salas"   value="{{sala.codSala}}">{{sala.nombre}}</option>
+            </select>
+        </div>
+        <div class="col-md-2 espacio"><span>Seleccione Pelicula:</span></div>
+        <div class="col-md-10 espacio ">
+            <select name="" class="inputBasico" [(ngModel)]="peliculaSeleccionada" id="" >
+                <option value="-">Seleccione</option>
+                <option *ngFor="let pel of Peliculas"   value="{{pel.codPelicula}}">{{pel.nombre}}</option>
+            </select>
+        </div>
+        <div class="col-md-2 espacio"><span>Fecha Inicio:</span></div>
+        <div class="col-md-10 espacio ">
+            <input type="date" [(ngModel)]="fechaInicio" (ngModelChange)="cambioFechaInicio()" class="inputBasico">
+        </div>
+        <div class="col-md-2 espacio"><span>Fecha Fin:</span></div>
+        <div class="col-md-10 espacio ">
+            <input type="date" [(ngModel)]="fechaFin" (ngModelChange)="cambioFechafin()" min="{{fechaInicio}}" class="inputBasico">
+        </div>
+        
+        <div class="col-12 espacio" *ngIf="existefuncion">
+            <h1>Sala con funciones ya programadas para las fechas seleccionadas</h1>
+        </div>
+        <div class="col-12 espacio" *ngIf="!existefuncion">
+            <button mat-raised-button color="primary" style="width: 100%;" (click)="CrearFunciones()">Crear funciones</button>
+        </div>
+    </div>
+</div>
