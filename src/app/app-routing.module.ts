@@ -6,6 +6,7 @@ import { AuthGuard } from './helpers/auth.guard';
 import { PDFViewerComponent } from './components/pdfviewer/pdfviewer.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { SucursalesComponent } from './components/sucursales/sucursales.component';
+import { ClientescrearComponent } from './components/clientescrear/clientescrear.component';
 import { SalasComponent } from './components/salas/salas.component';
 import { FuncionesComponent } from './components/funciones/funciones.component';
 import { ImagenesPeliculaComponent } from './components/imagenes-pelicula/imagenes-pelicula.component';
@@ -33,10 +34,13 @@ const routes: Routes = [
         component: RolesComponent
       },
       {
+        path:'RegistrarCliente',
+        component:ClientescrearComponent
+      },
+      {
         path:'CompraBoletos',
         component:CompraBoletosComponent
       },
-      
       {
         path:'Salas',
         component:SalasComponent
