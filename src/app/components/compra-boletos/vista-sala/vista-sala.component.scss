@@ -1,0 +1,61 @@
+.tarjeta{
+    border-radius:0.25rem;
+    border: 1px solid rgba(0,0,0,.125);
+}
+.asiento{
+  display: inline-block;
+  margin-right: 10px;
+    // background-color: greenyellow;
+     width: 30px;
+        height: 60px;
+        border-radius: 0 0 10px 10px;
+        overflow:hidden;
+        
+    }
+    .asiento:after {
+      content: "";
+      position:absolute;
+      margin:-10px;
+      width:20px;
+      height:20px;
+      transform:rotate(45deg);
+      border-radius:100%;
+      background-color:#fff; /* to see where it is */
+      
+    }
+    .asiento:before {
+      content: "";
+      position:absolute;
+      margin-top:-10px;
+      margin-left:20px;
+      width:20px;
+      height:20px;
+      transform:rotate(45deg);
+      border-radius:100%;
+      background-color:#fff; /* to see where it is */
+    }
+    
+    .asiento:hover {
+      background-color: rgb(16, 24, 5);
+    }
+
+.colorGreen{
+  background-color: greenyellow;
+}
+.colorBlue{
+  background-color: aqua;
+}
+
+.colorRed{
+  background-color:red;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.colorBlack{
+  background-color:black;
+}
+.disabledItem {
+  pointer-events: none;
+  opacity: 0.4;
+}

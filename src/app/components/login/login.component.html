@@ -25,6 +25,9 @@
                             <div *ngIf="f.password.errors.required">La contraseña es requerido</div>
                         </mat-error>
                     </mat-form-field>
+                        <mat-checkbox color="primary" [(ngModel)]="colaborador" style="margin-left: -100px;"  formControlName="colaborador" [checked]="colaborador">Colaborador</mat-checkbox>
+                        
+                    
                     <button mat-raised-button color="primary" type="submit" style=" width: 80%; display: block; margin-bottom: 5px;" [disabled]="loading">
                         <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                         Ingresar

@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>Aqui ira el banner</h1>
+        </div>
+        <div class="col-md-2">
+            <span>Seleccione Sucursal:</span>
+        </div>
+        <div class="col-md-10">
+            <select name="" id="" class="inputBasico" (change)="cambioSucursales($event)">
+                <option value="-">Seleccione</option>
+                <option *ngFor="let suc of Sucursales" value="{{suc.codSucursal}}">{{suc.nombre}}</option>
+            </select>
+        </div>
+        <br>
+        <br>
+        <section class="row">
+            <div *ngFor="let pel of Peliculas" class="col-lg-4">
+                <app-pelicula 
+                [Pelicula]="pel"></app-pelicula>
+            </div>
+        </section>
+        
+    </div>
+</div>

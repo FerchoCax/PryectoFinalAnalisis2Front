@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 espacio">
+        <span>Usuario</span>
+        <input type="text" [(ngModel)]="usernameCliente" maxlength="45" class="inputBasico">
+        </div>
+        <div class="col-12" espacio>
+            <span>Contraseña</span>
+            <input type="password" [(ngModel)]="contraCliente" maxlength="500" class="inputBasico">
+        </div>
+        <div class="col-12 espacio">
+            <span>Nombre Cliente:</span>
+            <input type="text" [(ngModel)]="nombreCliente" maxlength="100" class="inputBasico">
+        </div>
+        <div class="col-12 espacio">
+            <span>Apellido Cliente:</span>
+            <input type="text" [(ngModel)]="apellidoCliente" maxlength="100" class="inputBasico">
+        </div>
+        <div class="col-12 espacio">
+            <span>Telefono</span>
+            <input type="number" [(ngModel)]="telefonoCliente" maxlength="45" class="inputBasico">
+        </div>
+        <div class="col-12 espacio">
+            <span>Direccion</span>
+            <input type="text" [(ngModel)]="direccionCliente" maxlength="200" class="inputBasico">
+        </div>
+        <div class="col-12 espacio">
+            <span>Nit</span>
+            <input type="text" [(ngModel)]="nitCliente" maxlength="30"class="inputBasico">
+        </div>
+        <div class="col-12 espacio">
+            <span>Correo</span>
+            <input type="email"[(ngModel)]="correoCliente" class="inputBasico">
+        </div>
+
+        <div class="col-12 espacio">
+            <button mat-raised-button color="primary" (click)="crearcliente()" class="full-width">Crear Cliente</button>
+        </div>
+    </div>
+</div>

@@ -21,6 +21,7 @@ export class HomeLayoutComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
   isLoggedIn$: Observable<boolean>;
+  islogeg:boolean = false;
   isDarkMode: boolean = false;
   centro: CentrosProduccion = {
     nombreCentro: 'Sin centro',
@@ -118,6 +119,12 @@ export class HomeLayoutComponent implements OnInit {
   }
 
   TieneRol(rol: string[]): boolean {
-    return this.authenticationService.validarRol(rol)
+    // console.log(this.user.tipo);
+    
+    if(this.user!= null || this.user != undefined){
+      return this.authenticationService.validarRol(rol)
+    }else{
+      return false
+    }
   }
 }
