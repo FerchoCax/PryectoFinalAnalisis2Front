@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <h1>Crear Sala</h1>
+        <div class="col-md-2 espacio">
+            <span>Sucursal</span>
+        </div>
+        <div class="col-md-10 espacio">
+            <select name="" id=""  [(ngModel)]="sucursalSelecionada" class="inputBasico">
+                <option value="-">seleccione</option>
+                <option *ngFor="let suc of sucursales" value="{{suc.codSucursal}}">{{suc.nombre}}</option>
+            </select>
+        </div>
+        <div class="col-md-2 espacio">
+            <span>Tipo Sala</span>
+        </div>
+        <div class="col-md-10 espacio">
+            <select name="" id="" [(ngModel)]="tipoSala" class="inputBasico">
+                <option value="-">seleccione</option>
+                <option value="1">Grande</option>
+                <option value="2">Mediana</option>
+                <option value="3">Pequeña</option>
+            </select>
+        </div>
+        <div class="col-md-2 espacio">
+            <span>Nombre Sala</span>
+        </div>
+        <div class="col-md-10 espacio">
+            <input type="text" [(ngModel)]="nombreSala" class="inputBasico">
+        </div>
+        <div class="col-12 espacio">
+            <button mat-raised-button color="primary" (click)="crearSucursal()" class="full-width">Crear Sala</button>
+        </div>
+
+
+    </div>
+</div>

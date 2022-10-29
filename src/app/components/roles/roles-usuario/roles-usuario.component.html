@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-12">
                     <h2>Editar Roles</h2>
-                    <mat-paginator [pageSizeOptions]="[5,10,25]"> </mat-paginator>
+                    <mat-paginator [pageSizeOptions]="[5,10,25]" #paginator> </mat-paginator>
                     <table mat-table [dataSource]="DataSourceRoles" class="full-width">
                         <ng-container matColumnDef="nombre">
                             <th mat-header-cell  *matHeaderCellDef> Nombre Rol </th>

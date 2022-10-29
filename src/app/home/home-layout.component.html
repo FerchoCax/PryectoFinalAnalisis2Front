@@ -40,20 +40,46 @@
 
             
             <mat-nav-list>
-                <mat-list-item  (click)="GoTo('Roles')" style="color: var(--primary-text-color);">
+                <mat-list-item  (click)="GoTo('Roles')" *ngIf="TieneRol(['manejoRoles'])" style="color: var(--primary-text-color);">
                     <mat-icon mat-list-icon>build_circle</mat-icon>
                     <span *ngIf="isExpanded">Roles</span>
                 </mat-list-item>
 
-                <mat-list-item  (click)="GoTo('Sucursales')" style="color: var(--primary-text-color);">
+                <mat-list-item  (click)="GoTo('Sucursales')"  *ngIf="TieneRol(['crearSucursales'])" style="color: var(--primary-text-color);">
                     <mat-icon mat-list-icon>apartment</mat-icon>
                     <span *ngIf="isExpanded">Sucursales</span>
+                </mat-list-item>
+                <mat-list-item  (click)="GoTo('Salas')"  *ngIf="TieneRol(['crearSalas'])"  style="color: var(--primary-text-color);">
+                    <mat-icon mat-list-icon>weekend</mat-icon>
+                    <span *ngIf="isExpanded">Salas</span>
+                </mat-list-item>
+
+                <mat-list-item  (click)="GoTo('Funciones')" *ngIf="TieneRol(['crearFunciones'])" style="color: var(--primary-text-color);">
+                    <mat-icon mat-list-icon>slideshow</mat-icon>
+                    <span *ngIf="isExpanded">Funciones</span>
+                </mat-list-item>
+
+                <mat-list-item  (click)="GoTo('Imagenes')" *ngIf="TieneRol(['crearPeliculas'])"  style="color: var(--primary-text-color);">
+                    <mat-icon mat-list-icon>image</mat-icon>
+                    <span *ngIf="isExpanded">Imagenes Pelicula</span>
+                </mat-list-item>
+
+                <mat-list-item  (click)="GoTo('ValidacionBoleto')"  *ngIf="TieneRol(['Acceso'])" style="color: var(--primary-text-color);">
+                    <mat-icon mat-list-icon>local_activity</mat-icon>
+                    <span *ngIf="isExpanded">Validacion de boletos</span>
+                </mat-list-item>
+
+                <mat-list-item  (click)="GoTo('ComprasPrevias')"  *ngIf="(user!= null || user!= undefined ) && user.tipo == 'CLIENTE'" style="color: var(--primary-text-color);">
+                    <mat-icon mat-list-icon>local_activity</mat-icon>
+                    <span *ngIf="isExpanded">Compras previas</span>
                 </mat-list-item>
 
                 <mat-list-item *ngIf="!isDarkMode" hidden (click)="darkTheme()" style="color: var(--primary-text-color);">
                     <mat-icon mat-list-icon>dark_mode</mat-icon>
                     <span *ngIf="isExpanded">Tema</span>
                 </mat-list-item>
+
+                
 
                 <mat-list-item *ngIf="isDarkMode" hidden (click)="darkTheme()" style="color: var(--primary-text-color);">
                     <mat-icon mat-list-icon>light_mode</mat-icon>

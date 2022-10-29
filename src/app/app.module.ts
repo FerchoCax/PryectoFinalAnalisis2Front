@@ -57,6 +57,15 @@ import { CrearRolesComponent } from './components/roles/crear-roles/crear-roles.
 import { RolesUsuarioComponent } from './components/roles/roles-usuario/roles-usuario.component';
 import { SucursalesComponent } from './components/sucursales/sucursales.component';
 import { ClientescrearComponent } from './components/clientescrear/clientescrear.component';
+import { SalasComponent } from './components/salas/salas.component';
+import { FuncionesComponent } from './components/funciones/funciones.component';
+import { ImagenesPeliculaComponent } from './components/imagenes-pelicula/imagenes-pelicula.component';
+import { HomeComponent } from './components/home/home.component';
+import { PeliculaComponent } from './components/home/pelicula/pelicula.component';
+import { CompraBoletosComponent } from './components/compra-boletos/compra-boletos.component';
+import { VistaSalaComponent } from './components/compra-boletos/vista-sala/vista-sala.component';
+import { ValidacionDeBoletosComponent } from './components/validacion-de-boletos/validacion-de-boletos.component';
+import { LectorcodigoQrComponent } from './components/lectorcodigo-qr/lectorcodigo-qr.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +80,15 @@ import { ClientescrearComponent } from './components/clientescrear/clientescrear
     RolesUsuarioComponent,
     SucursalesComponent,
     ClientescrearComponent,
+    SalasComponent,
+    FuncionesComponent,
+    ImagenesPeliculaComponent,
+    HomeComponent,
+    PeliculaComponent,
+    CompraBoletosComponent,
+    VistaSalaComponent,
+    ValidacionDeBoletosComponent,
+    LectorcodigoQrComponent
   ],
   entryComponents: [],
   imports: [

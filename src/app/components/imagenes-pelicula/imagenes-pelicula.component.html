@@ -1,0 +1,57 @@
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Agregar Imagen">
+        <div class="container-fluid">
+            <div class="row">
+                <h1>Agregar Imagen</h1>
+                <div class="col-md-2 espacio"><span>Seleccione Pelicula:</span></div>
+                <div class="col-md-10 espacio ">
+                    <select name="" class="inputBasico" [(ngModel)]="peliculaSeleccionada" id="" >
+                        <option value="-">Seleccione</option>
+                        <option *ngFor="let pel of Peliculas"   value="{{pel.codPelicula}}">{{pel.nombre}}</option>
+                    </select>
+                </div>
+                <div class="col-md-2 espacio"><span>Seleccione el tipo de imagen:</span></div>
+                <div class="col-md-10 espacio ">
+                    <select name="" class="inputBasico" [(ngModel)]="tipoPelicula" id="" >
+                        <option value="-">Seleccione</option>
+                        <option value="1">Banner</option>
+                        <option value="2">Principal</option>
+                        <option value="3">otro</option>
+                    </select>
+                </div>
+                <div class="col-md-2 espacio"><span>Archivo:</span></div>
+                <div class="col-md-10 espacio ">
+                    <input type="file"   (change)="onFileChange($event)">
+                </div>
+            </div>
+
+            <div class="col-12 espacio">
+                <button mat-raised-button color="primary" style="width: 100%;" (click)="cargarImagen()"> Subir imagen </button>
+            </div>
+        </div>
+
+
+    </mat-tab>
+    <mat-tab label="Lista Imagenes">  
+        <div class="container-fluid">
+            <div class="row">
+                <h1>Listar Imagenes</h1>
+                <div class="col-md-2 espacio"><span>Seleccione Pelicula:</span></div>
+                <div class="col-md-10 espacio ">
+                    <select name="" class="inputBasico" [(ngModel)]="peliculaSeleccionada2"  (change)="cargarImagenes($event)" id="" >
+                        <option value="-">Seleccione</option>
+                        <option *ngFor="let pel of Peliculas"   value="{{pel.codPelicula}}">{{pel.nombre}}</option>
+                    </select>
+                </div>
+                <div *ngFor="let img of ImagenesPelicula" class="col-md-6">
+                    <div class="row">
+                        <h2>{{img.codTipoImagenNavigator.nombre}}</h2>
+                    </div>
+                    <div class="row">
+                        <img src="{{img.urlImagen}}" alt="" width="50%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+  </mat-tab-group>
