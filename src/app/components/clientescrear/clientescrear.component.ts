@@ -27,7 +27,7 @@ export class ClientescrearComponent implements OnInit {
   crearcliente(){
     Swal.fire({
       icon:'question',
-      title: 'Desea Crear Cliente?',
+      title: 'Deseas Registrarte?',
       showCancelButton:true
     }).then(res => {
       if(res.isConfirmed){
@@ -48,8 +48,16 @@ export class ClientescrearComponent implements OnInit {
           if (resultado == 1) {
             Swal.fire({
               icon:'success',
-              title: 'Se agrego correctamente',
+              title: 'Te registraste correctamente!',
           })
+          this.usernameCliente='';
+          this.contraCliente=''
+          this.nombreCliente=''
+          this.apellidoCliente=''
+          this.telefonoCliente=0;
+          this.direccionCliente=''
+          this.nitCliente=''
+          this.correoCliente=''
         }          
       })
         }

@@ -11,6 +11,7 @@
  */
 import { Sala } from './sala';
 import { Boleto } from './boleto';
+import { Pelicula } from './pelicula';
 
 
 export interface Funcione { 
@@ -26,5 +27,6 @@ export interface Funcione {
     fechaAct?: string | null;
     codSalaNavigation?: Sala;
     boletos?: Array<Boleto> | null;
+    codPeliculaNavigator?: Pelicula | null;
 }
 

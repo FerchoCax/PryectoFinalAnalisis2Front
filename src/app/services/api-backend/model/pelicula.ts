@@ -28,6 +28,6 @@ export interface Pelicula {
     fechaAct?: string | null;
     codClasificacionNavigation?: ClasificacionPelicula;
     imagenes?: Array<ImagenPelicula> | null;
-    funciones:Array<Funcione> | null;
+    funciones?:Array<Funcione> | null;
 }
 

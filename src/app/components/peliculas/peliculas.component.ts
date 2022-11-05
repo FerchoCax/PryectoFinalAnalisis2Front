@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Pelicula } from 'src/app/services/api-backend';
-import { Peliculaservice } from 'src/app/services/api-backend/api/peliculas.service';
-import { PeliculasService } from 'src/app/services/api-backend/api/peliculas.service';
+// import { Pelicula } from 'src/app/services/api-backend';
+// import { PeliculasService } from 'src/app/services/api-backend/api/peliculas.service';
+import { Pelicula } from 'src/app/services/api-backend/model/pelicula';
 import Swal from 'sweetalert2';
-
+import { PeliculaService } from 'src/app/services/api-backend/api/peliculas.service';
+import { ClasificacionPelicula } from 'src/app/services/api-backend/model/clasificacionPelicula';
 @Component({
   selector: 'app-peliculas',
   templateUrl: './peliculas.component.html',
@@ -15,25 +16,25 @@ export class PeliculasComponent implements OnInit {
   descripcionPelicula:string='';
   clasificacionPelicula:string='';
 
-  dataClasificacion:clasificacion[]=[];
-  constructor(private servicioPel:PeliculasService) { }
+  dataClasificacion:ClasificacionPelicula[]=[];
+  constructor(private servicioPel:PeliculaService) { }
 
   ngOnInit(): void {
       this.cargarClasificacion();
   }
 
   cargarClasificacion(){
-    this.servicioPel.peliculasGet()
-    .subscribe(resultado=>){
+    this.servicioPel.peliculasGetPeliculasGet()
+    .subscribe(resultado=>{
       this.dataClasificacion = <Pelicula[]>resultado
       console.log(this.dataClasificacion)
     },error=>{
       console.log(error);
-    }
+    })
   }
   
   cambioClasificacion(){
-    this.cargarClasificacion(this.clasificacion)
+    this.cargarClasificacion()
   }
 
   crearPelicula(){
@@ -49,7 +50,7 @@ export class PeliculasComponent implements OnInit {
           activa:'A',
           usuarioIng:'ktomas'
         }
-        this.servicioPeliculas.peliculasCrearPeliculasPost(peliculaNueva)
+        this.servicioPel.peliculasCrearPeliculaPost(peliculaNueva)
         .subscribe(resultado=>{
           if(resultado.estado==1){
             Swal.fire({

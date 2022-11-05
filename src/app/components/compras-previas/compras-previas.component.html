@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>Compras Previas</h1>
+            <div class="row" *ngIf="Cliente">
+                <div class="col-12"style="border:3px; border-style:solid; border-radius:10px; margin-bottom:10px; border-color:gray"  *ngFor="let fact of Cliente.facturas">
+                    <div class="row">
+                        <div class="col-md-4 textoLabel">
+                            <span>Fecha Compra: {{fecha(fact.fechaIng) }} </span>
+                        </div>
+                        <div class="col-md-4 textoLabel">
+                            <span>Cantidad Boletos: {{fact.boletosFacturas.length }}</span>
+                        </div>
+                        <div class="col-md-4 textoLabel">
+                            <span>Total: Q {{fact.total}}.00</span>
+                        </div>
+                        <div class="col-12 textoLabel" *ngIf="fact.boletosFacturas.length>0">
+                            <span>Pelicula: {{fact.boletosFacturas[0].codBoletoNavigation.codFuncionNavigation.codPeliculaNavigator.nombre}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12" *ngIf="Cliente.facturas.length ==0">
+                    <h2>No has realizado comporas previas</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,8 +18,7 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { Pelicula } from '../model/models';
-
+import { Pelicula } from 'src/app/services/api-backend/model/pelicula';
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 import { environment } from 'src/environments/environment';
@@ -29,7 +28,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class SucursalesService {
+export class PeliculaService {
 
     protected basePath = 'http://localhost';
     public defaultHeaders = new HttpHeaders();
@@ -133,7 +132,7 @@ export class SucursalesService {
         }
 
         return this.httpClient.post<any>(`${environment.apiUrl}/Peliculas/CrearPelicula`,
-            pelicula,
+            Pelicula,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,

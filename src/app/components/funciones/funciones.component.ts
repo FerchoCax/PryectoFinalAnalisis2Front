@@ -6,6 +6,7 @@ import { ImagenesService } from 'src/app/services/api-backend/api/imagenes.servi
 import { SalasService } from 'src/app/services/api-backend/api/salas.service';
 import { SucursalesService } from 'src/app/services/api-backend/api/sucursales.service';
 import { Pelicula } from 'src/app/services/api-backend/model/pelicula';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-funciones',
@@ -81,7 +82,10 @@ export class FuncionesComponent implements OnInit {
   CrearFunciones(){
     this.funcionesService.funcionesCrearFuncionesPost(this.peliculaSeleccionada,this.salaSeleccionada,this.fechaInicio,this.fechaFin)
     .subscribe(result =>{
-      console.log(result)
+      Swal.fire({
+        title:'Funciones creadas correctamente',
+        icon:'success'
+      })
     })
   }
   cambioFechafin(){

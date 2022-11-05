@@ -14,6 +14,7 @@ import { ImagenesPeliculaComponent } from './components/imagenes-pelicula/imagen
 import { HomeComponent } from './components/home/home.component';
 import { CompraBoletosComponent } from './components/compra-boletos/compra-boletos.component';
 import { ValidacionDeBoletosComponent } from './components/validacion-de-boletos/validacion-de-boletos.component';
+import { ComprasPreviasComponent } from './components/compras-previas/compras-previas.component';
 const routes: Routes = [
   {
     path: '',                        
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path:'RegistrarCliente',
         component:ClientescrearComponent
+      },
+      {
+        path:'ComprasPrevias',
+        component:ComprasPreviasComponent
       },
       {
         path:'CompraBoletos',

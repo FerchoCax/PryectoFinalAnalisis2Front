@@ -6,6 +6,7 @@ import { ImagenesService } from 'src/app/services/api-backend/api/imagenes.servi
 import { SucursalesService } from 'src/app/services/api-backend/api/sucursales.service';
 import { Pelicula } from 'src/app/services/api-backend/model/pelicula';
 import { SharedDataService } from 'src/app/services/utils/shared-data.service';
+import { ICarouselItem } from '../carousel/carousel.component';
 
 @Component({
   selector: 'app-home',
@@ -15,14 +16,17 @@ import { SharedDataService } from 'src/app/services/utils/shared-data.service';
 export class HomeComponent implements OnInit {
   Peliculas:Pelicula[]=[];
   Sucursales:Sucursale[]=[];
+  dataCarruse:ICarouselItem[]=[]
   constructor(
     private imagenesService:ImagenesService,
     private servicioCompras:ComprasService,
     private servicioSucursales:SucursalesService,
+    
   ) { }
 
   ngOnInit(): void {
     this.cargarSucursales()
+    this.cargarPeliculas() 
   }
 
   cargarSucursales(){
@@ -32,6 +36,37 @@ export class HomeComponent implements OnInit {
       this.Sucursales = <Sucursale[]>result
     },error =>{
       console.log(error.error.error)
+    })
+    
+  }
+
+  cargado:boolean = false;
+  cargarPeliculas(){
+    this.imagenesService.imagenesGetPeliculasGet()
+    .subscribe(res =>{
+      let data:Pelicula[] = <Pelicula[]>res
+      console.log(data);
+      
+      let count:number = 0
+      data.forEach(e =>{
+        if(count <5){
+          let item:ICarouselItem={
+            id:e.codPelicula,
+            title:{
+              first:e.nombre,
+              second:''
+            },
+            image:e.imagenes.length == 0 ? '': e.imagenes[0].urlImagen,
+            link:'',
+          
+          }
+          this.dataCarruse.push(item)
+        }
+        count +=1;
+      })
+      this.cargado = true;
+      console.log(this.dataCarruse);
+      
     })
   }
   cambioSucursales(event){

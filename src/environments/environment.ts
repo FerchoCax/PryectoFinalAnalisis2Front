@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // apiUrl: 'https://localhost:7128',https://192.168.0.3:7128/
-  apiUrl: 'https://192.168.0.3:7128',
+  apiUrl: 'https://apianalisisprueba.azurewebsites.net',
 };
 
 /*

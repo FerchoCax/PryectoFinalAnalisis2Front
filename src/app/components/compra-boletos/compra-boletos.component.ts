@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserModel } from 'src/app/models/UserModel';
@@ -9,7 +9,7 @@ import { TodoCompra } from 'src/app/services/api-backend/model/todoCompra';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { SharedDataService } from 'src/app/services/utils/shared-data.service';
 import Swal from 'sweetalert2';
-
+import { MatStepper } from '@angular/material/stepper';
 @Component({
   selector: 'app-compra-boletos',
   templateUrl: './compra-boletos.component.html',
@@ -38,6 +38,7 @@ export class CompraBoletosComponent implements OnInit {
     apellidos:'',
     nit:''
   };
+  @ViewChild('stepper') private myStepper: MatStepper;
 
   TotalFactura:number=0;
   // eventsSubscription:Subscription;
@@ -59,14 +60,24 @@ export class CompraBoletosComponent implements OnInit {
     this.cargarCliente()
   }
   cargarCliente(){
+    console.log(this._autenticationService.userValue)
+     if(this._autenticationService.userValue == null ||this._autenticationService.userValue == undefined  ){
+      Swal.fire({
+        icon:'info',
+        text:'Para realizar una compra primero debes registrarte'
+      }).then(res =>{
+        this.router.navigateByUrl('/RegistrarCliente')
+      })
+     }else{
+      this._servicioCompras.comprasGetInfoClienteGet(this._autenticationService.userValue.codUser)
+      .subscribe(result =>{
+       this.Cliente = <Cliente>result
+       
+      }, error =>{
+         console.log(error.error.error)
+      })
+     }
      
-     this._servicioCompras.comprasGetInfoClienteGet(this._autenticationService.userValue.codUser)
-     .subscribe(result =>{
-      this.Cliente = <Cliente>result
-      
-     }, error =>{
-        console.log(error.error.error)
-     })
     
     }
   cargarDatos(){
@@ -98,8 +109,15 @@ export class CompraBoletosComponent implements OnInit {
   }
 
   setState(control: FormControl, state: boolean) {
+    // console.log(control);
+    
     if (state) {
       control.setErrors({ "required": true })
+      // console.log(this.myStepper);
+      
+      // this.myStepper.next();
+      // control.setErrors({ "required": true })
+      // this.Siguiente
     } else {
       control.reset()
     }
@@ -147,8 +165,13 @@ export class CompraBoletosComponent implements OnInit {
   Siguiente(paso:number){
     if(paso==1){
       this.setState(this.CantidadBoletos,false)
+      console.log(this.myStepper);
+      this.myStepper.next();
+
     }else if(paso==2){
       this.setState(this.SeleccionadosBoletos,false)
+      this.myStepper.next();
+
     }
   }
 

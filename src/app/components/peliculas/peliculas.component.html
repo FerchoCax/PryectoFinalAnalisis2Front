@@ -10,9 +10,9 @@
         </div>
         <div class="col-12" espacio>
             <span>Clasificacion:</span>
-            <select name="clasificacion" id="clasificacion" [(ngModel)]="Clasificacion" (ngModelChange)="cambioClasificacion()" class="inputBasico">   
+            <select name="clasificacion" id="clasificacion"  class="inputBasico">   
                 <option value="-">Seleccione</option>>
-                <option *ngFor="let dep of dataClasificacion" value="{{codClasificacion}}">{{.nombre}}</option>
+                <!-- <option *ngFor="let dep of dataClasificacion" value="{{codClasificacion}}">{{.nombre}}</option> -->
             </select>
         </div>
         <div class="col-12" espacio>
